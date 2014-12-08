@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="fr">
   <head>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -49,8 +49,19 @@ body{
     bouge();
     var sens = 1;
     var duree = 1000;
-    var inter = 0;
     var compt = 0;
+
+    var espace_sens = 1;
+    function espace_bouge() {
+        if (espace_sens) {
+            document.getElementById("espace").style.top="0px";
+            espace_sens = 0;
+        } else {
+            document.getElementById("espace").style.top="-3500px";
+            espace_sens = 1;
+        }
+    }
+    setInterval(espace_bouge, 210000);
 
     function bouge(){
     setTimeout(function() {
@@ -71,10 +82,6 @@ body{
             document.getElementById("image").style.mozTransform="scale(1,1.5)";
             document.getElementById("image").style.msTransform="scale(1,1.5)";
             document.getElementById("image").style.oTransform="scale(1,1.5)";
-            if(inter==0){
-                document.getElementById("espace").style.top="0px";
-                inter=1;
-            }
             sens = 1;
             duree = 600;
         } else {
@@ -94,7 +101,9 @@ body{
             document.getElementById("image").style.mozTransform="scale(1,1)";
             document.getElementById("image").style.msTransform="scale(1,1)";
             document.getElementById("image").style.oTransform="scale(1,1)";
-            if(compt==39){
+            compt = document.getElementById('meduseson').currenTime;
+            console.log(compt);
+            if(compt==20){
                 document.getElementById("image").style.top="-500px";
             }
             compt++;
@@ -106,8 +115,9 @@ body{
     }
 
 
-</script> 
-<audio id="meduseson" autoplay preload><source src="meduse.mp3" type="audio/mpeg"><source src="meduse.ogg" type="audio/ogg"></audio>
+
+</script>
+<audio id="meduseson" autoplay preload><source src="science.mp3" type="audio/mpeg"><source src="science.ogg" type="audio/ogg"></audio>
 <div id="espace">
     <img class="meduse" id="fondespace" style="width:100%;height:100%:top:0px;left:0px" src="espace.jpg">
 </div>
