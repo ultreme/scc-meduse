@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="fr">
+  <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>méduse</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    #image {
+    transition:All 3s ease-in-out;
+    -webkit-transition:All 3s ease-in-out;
+    -moz-transition:All 3s ease-in-out;
+    -o-transition:All 3s ease-in-out;
+
+    transform-origin: bottom left;
+    -webkit-transform-origin: bottom left;
+    -moz-transform-origin: bottom left;
+    -o-transform-origin: bottom left;
+    position:absolute;
+    margin:0;
+    width:25%;
+    height:50%;
+    top:25%;
+    left:37.5%;
+}
+#espace {
+    transition:All 210s linear;
+    -webkit-transition:All 210s linear;
+    -moz-transition:All 210s linear;
+    -o-transition:All 210s linear;
+    position:absolute;
+    margin:0;
+    width:100%;
+    height:10000px;
+    top:-3500px;
+    left:0%;
+}
+.meduse {
+    position:absolute;
+    margin:0;
+}
+body{
+    overflow:hidden;
+}
+    </style>
+  </head>
+  <body>
+      <script type="text/javascript">
+    bouge();
+    var sens = 1;
+    var duree = 1000;
+    var inter = 0;
+    var compt = 0;
+
+    function bouge(){
+    setTimeout(function() {
+        if(sens==0){
+            // document.getElementById('image').style.left = "5%";
+            document.getElementById("image").style.transformOrigin="bottom left";
+            document.getElementById("image").style.webkitTransformOrigin="bottom left";
+            document.getElementById("image").style.mozTransformOrigin="bottom left";
+            document.getElementById("image").style.msTransforOrigin="bottom left";
+            document.getElementById("image").style.otransformOrigin="bottom left";
+            document.getElementById("image").style.transition="0.5s ease-in-out";
+            document.getElementById("image").style.webkitTransition="0.5s ease-in-out";
+            document.getElementById("image").style.mozTransition="0.5s ease-in-out";
+            document.getElementById("image").style.msTransition="0.5s ease-in-out";
+            document.getElementById("image").style.otransition="0.5s ease-in-out";
+            document.getElementById("image").style.transform="scale(1,1.5)";
+            document.getElementById("image").style.webkitTransform="scale(1,1.5)";
+            document.getElementById("image").style.mozTransform="scale(1,1.5)";
+            document.getElementById("image").style.msTransform="scale(1,1.5)";
+            document.getElementById("image").style.oTransform="scale(1,1.5)";
+            if(inter==0){
+                document.getElementById("espace").style.top="0px";
+                inter=1;
+            }
+            sens = 1;
+            duree = 600;
+        } else {
+            // document.getElementByIimageage').style.left = "0%";
+            document.getElementById("image").style.transformOrigin="top left";
+            document.getElementById("image").style.webkitTransformOrigin="top left";
+            document.getElementById("image").style.mozTransformOrigin="top left";
+            document.getElementById("image").style.msTransforOrigin="top left";
+            document.getElementById("image").style.otransformOrigin="top left";
+            document.getElementById("image").style.transition="2s ease-in-out";
+            document.getElementById("image").style.webkitTransition="2s ease-in-out";
+            document.getElementById("image").style.mozTransition="2s ease-in-out";
+            document.getElementById("image").style.msTransition="2s ease-in-out";
+            document.getElementById("image").style.otransition="2s ease-in-out";
+            document.getElementById("image").style.transform="scale(1,1)";
+            document.getElementById("image").style.webkitTransform="scale(1,1)";
+            document.getElementById("image").style.mozTransform="scale(1,1)";
+            document.getElementById("image").style.msTransform="scale(1,1)";
+            document.getElementById("image").style.oTransform="scale(1,1)";
+            if(compt==39){
+                document.getElementById("image").style.top="-500px";
+            }
+            compt++;
+            sens = 0;
+            duree = 2000;
+        }
+        bouge();
+        }, duree);
+    }
+
+
+</script> 
+<audio id="meduseson" autoplay preload><source src="meduse.mp3" type="audio/mpeg"><source src="meduse.ogg" type="audio/ogg"></audio>
+<div id="espace">
+    <img class="meduse" id="fondespace" style="width:100%;height:100%:top:0px;left:0px" src="espace.jpg">
+</div>
+
+<div id="image">
+    <img class="meduse" id="fond" style="width:100%;height:100%:top:0%;left:0%" src="meduse.jpg">
+</div>
+
+</body>
+</html>
